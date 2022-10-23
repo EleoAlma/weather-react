@@ -1,4 +1,4 @@
-.Weather .container {
+.App .container {
    height: 0;
  }
  
@@ -169,7 +169,7 @@
    width: 50px;
  }
  
- .Weather .open-source {
+ .App .open-source {
    font-size: 0.8rem;
    text-align: center;
  }
