@@ -89,7 +89,7 @@ export default function Weather() {
         <div className="row open-source">
           <div className="col">
             <a
-              href="https://github.com/EleoAlma/weather-project"
+              href="https://github.com/EleoAlma/weather-react"
               target="_blank"
               rel="noreferrer"
             >
