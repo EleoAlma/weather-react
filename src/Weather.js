@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Forecast from "./Forecast";
+import CurrentWeather from "./CurrentWeather";
 
 import "./styles.css";
 import "./Weather.css"
 
+
 export default function Weather(props) {
   const [city, setCity] = useState("London");
-  const [loaded, setLoaded] = useState(false);
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ ready: false });
 
   function displayWeather(response) {
-    setLoaded(true);
     setData({
+      ready: true,
+      city: response.data.name,
+      coordinates: response.data.coord,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       date: "Sunday 20:00 (TO CHANGE AFTER!)",
@@ -21,19 +25,26 @@ export default function Weather(props) {
     });
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function searchWeather() {
     let apiKey = "96eb20764d4adbb57fa516a1544ed0a1";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(displayWeather);
     console.log(url)
   }
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    searchWeather();
+  }
+
   function changeCity(event) {
     setCity(event.target.value);
   }
 
-let form = <div className="Weather">
+
+
+  if (data.ready) {
+  return ( <div className="Weather">
   <div className="weather-app-wrapper">
     <div className="weather-app">
       <div className="row">
@@ -61,56 +72,13 @@ let form = <div className="Weather">
           </form>
         </div>
       </div>
-      <div className="row">
-        <div className="col-sm-12 col-md-9 col-lg-9 current">
-          <h1 className="current-city">
-            <span className="current-city city">{city}</span>
-            <span className="current-city temperature">
-              {data.temperature}
-            </span>
-            <sup>
-              <a className="active" href="/">
-                °C
-              </a>
-              <a className="fahrenheit" href="/">
-                °F
-              </a>
-            </sup>
-            <img
-              className="main-icon"
-              src={data.icon}
-              alt={data.description}
-            ></img>
-          </h1>
-          <ul className="current-date">
-            <li className="current-date-element">
-              Last updated at: {data.date}
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-12 col-md-3 col-lg-3">
-          <ul className="weather-conditions">
-            <li>{data.description}</li>
-            <li>
-              Humidity: <span>{data.humidity}</span>%
-            </li>
-            <li>
-              Wind: <span>{data.wind}</span> km/h
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="forecast">
-
-      </div>
+      <CurrentWeather data={data} />
+      <Forecast coordinates={data.coordinates}  />
     </div>
   </div>
-
-</div>
-
-  if (loaded) {
-  return form
+</div> );
 } else {
-  return form;
+  searchWeather();
+  return "Loading...";
 }
 }
