@@ -1,4 +1,7 @@
 import React from "react";
+import Icons from "./Icons";
+
+import "./CurrentWeather.css";
 
 export default function CurrentWeather(props) {
   return (
@@ -18,11 +21,7 @@ export default function CurrentWeather(props) {
                 °F
               </a>
             </sup>
-            <img
-              className="main-icon"
-              src={props.data.icon}
-              alt={props.data.description}
-            />
+              <Icons code={props.data.icon} size={55} />
           </h1>
           <ul className="current-date">
             <li className="current-date-element">

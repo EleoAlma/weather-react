@@ -1,7 +1,8 @@
 import React from "react";
+
 import "./Forecast.css";
 
-export default function Forecast(data) {
+export default function Forecast() {
   return (
     <div className="Forecast">
       <div className="row">
@@ -16,10 +17,8 @@ export default function Forecast(data) {
                <span className="forecast-min-temperature">
                   12°
                </span>
-            </div>
-            <div className="forecast-icon">
-               <img id="icon" src="http://openweathermap.org/img/wn/10d@2x.png" alt="Icon of forecast weather" />      
-            </div>
+            </div>   
+            <img src="/" alt="fancy weather icon in future" />
          </div>
       </div>
     </div>

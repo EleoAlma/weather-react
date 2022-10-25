@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Forecast from "./Forecast";
 import CurrentWeather from "./CurrentWeather";
+import Forecast from "./Forecast";
 
 import "./styles.css";
 import "./Weather.css"
 
 
-export default function Weather(props) {
+export default function Weather() {
   const [city, setCity] = useState("London");
   const [data, setData] = useState({ ready: false });
 
@@ -21,7 +21,7 @@ export default function Weather(props) {
       date: "Sunday 20:00 (TO CHANGE AFTER!)",
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+      icon: response.data.weather[0].icon
     });
   }
 
@@ -73,7 +73,7 @@ export default function Weather(props) {
         </div>
       </div>
       <CurrentWeather data={data} />
-      <Forecast coordinates={data.coordinates}  />
+      <Forecast coordinates={data.coordinates} />
     </div>
   </div>
 </div> );
