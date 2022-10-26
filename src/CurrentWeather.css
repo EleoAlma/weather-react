@@ -14,7 +14,7 @@
  
  .CurrentWeather .current-city .temperature {
    font-size: 3rem;
-   padding-right: 0.5rem;
+   padding: 0 0.4rem; 
  }
  
  .CurrentWeather .main-icon {

@@ -58,5 +58,8 @@
  .Weather .btn-primary .location {
    margin-left: 3.5rem;
  }
- 
- 
+
+ .blocks-wrapper {
+  display: block;
+  margin: 0 auto;
+}

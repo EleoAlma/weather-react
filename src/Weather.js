@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./Forecast";
-
+import { ColorRing } from 'react-loader-spinner'
 import "./styles.css";
 import "./Weather.css"
 
 
-export default function Weather() {
-  const [city, setCity] = useState("London");
+export default function Weather(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [data, setData] = useState({ ready: false });
 
   function displayWeather(response) {
@@ -79,6 +79,15 @@ export default function Weather() {
 </div> );
 } else {
   searchWeather();
-  return "Loading...";
+  return (
+<ColorRing
+  visible={true}
+  height="200"
+  width="200"
+  ariaLabel="blocks-loading"
+  wrapperStyle={{}}
+  wrapperClass="blocks-wrapper"
+  colors={['cadetblue', 'cadetblue', 'cadetblue', 'cadetblue', 'cadetblue']}
+/>);
 }
 }
