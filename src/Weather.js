@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import CurrentWeather from "./CurrentWeather";
+import FormattedDate from "./FormattedDate";
 import Forecast from "./Forecast";
+import Icons from "./Icons";
 import { ColorRing } from 'react-loader-spinner'
 import "./styles.css";
 import "./Weather.css"
@@ -18,7 +19,7 @@ export default function Weather(props) {
       coordinates: response.data.coord,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
-      date: "Sunday 20:00 (TO CHANGE AFTER!)",
+      date: new Date(response.data.dt * 1000),
       humidity: response.data.main.humidity,
       wind: Math.round(response.data.wind.speed),
       icon: response.data.weather[0].icon
@@ -72,7 +73,43 @@ export default function Weather(props) {
           </form>
         </div>
       </div>
-      <CurrentWeather data={data} />
+      <div className="CurrentWeather">
+      <div className="row">
+        <div className="col-sm-12 col-md-9 col-lg-9 current">
+          <h1 className="current-city">
+            <span className="current-city city">{data.city}</span>
+            <span className="current-city temperature">
+              {data.temperature}
+            </span>
+            <sup>
+              <a className="active" href="/">
+                °C
+              </a>
+              <a className="fahrenheit" href="/">
+                °F
+              </a>
+            </sup>
+              <Icons code={data.icon} size={55} />
+          </h1>
+          <ul className="current-date">
+            <li className="current-date-element">
+              <FormattedDate date={data.date}/>
+            </li>
+          </ul>
+        </div>
+        <div className="col-sm-12 col-md-3 col-lg-3">
+          <ul className="weather-conditions">
+            <li>{data.description}</li>
+            <li>
+              Humidity: <span>{data.humidity}</span>%
+            </li>
+            <li>
+              Wind: <span>{data.wind}</span> km/h
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
       <Forecast coordinates={data.coordinates} />
     </div>
   </div>
