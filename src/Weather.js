@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FormattedDate from "./FormattedDate";
+import CityWeatherInfo from "./CityWeatherInfo";
 import Forecast from "./Forecast";
-import Icons from "./Icons";
 import { ColorRing } from 'react-loader-spinner'
 import "./styles.css";
 import "./Weather.css"
@@ -10,10 +9,10 @@ import "./Weather.css"
 
 export default function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
-  const [data, setData] = useState({ ready: false });
+  const [fullInformation, setFullInformation] = useState({ ready: false });
 
   function displayWeather(response) {
-    setData({
+    setFullInformation({
       ready: true,
       city: response.data.name,
       coordinates: response.data.coord,
@@ -42,7 +41,7 @@ export default function Weather(props) {
     setCity(event.target.value);
   }
 
-  if (data.ready) {
+  if (fullInformation.ready) {
   return ( <div className="Weather">
   <div className="weather-app-wrapper">
     <div className="weather-app">
@@ -71,42 +70,8 @@ export default function Weather(props) {
           </form>
         </div>
       </div>
-      <div className="row">
-        <div className="col-sm-12 col-md-9 col-lg-9 current">
-          <h1 className="current-city">
-            <span className="current-city city">{data.city}</span>
-            <span className="current-city temperature">
-              {data.temperature}
-            </span>
-            <sup>
-              <a className="active" href="/">
-                °C
-              </a>
-              <a className="fahrenheit" href="/">
-                °F
-              </a>
-            </sup>
-              <Icons code={data.icon} size={55} />
-          </h1>
-          <ul className="current-date">
-            <li className="current-date-element">
-              <FormattedDate date={data.date}/>
-            </li>
-          </ul>
-        </div>
-        <div className="col-sm-12 col-md-3 col-lg-3">
-          <ul className="weather-conditions">
-            <li>{data.description}</li>
-            <li>
-              Humidity: <span>{data.humidity}</span>%
-            </li>
-            <li>
-              Wind: <span>{data.wind}</span> km/h
-            </li>
-          </ul>
-        </div>
-      </div>
-      <Forecast coordinates={data.coordinates} />
+      <CityWeatherInfo data={fullInformation} />
+      <Forecast coordinates={fullInformation.coordinates} />
     </div>
   </div>
 </div> );

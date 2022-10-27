@@ -23,6 +23,7 @@
  
  .Forecast .forecast-min-temperature {
    color: rgba(0, 0, 0, 0.6);
+   padding-left: 7px;
  }
  
  .Forecast .forecast-icon img {
