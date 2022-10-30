@@ -1,6 +1,7 @@
 import React from "react";
 import FormattedDate from "./FormattedDate";
 import Icons from "./Icons";
+import Temperature from "./Temperature";
 
 import "./CityWeatherInfo.css"
 
@@ -10,18 +11,8 @@ export default function CityWeatherInfo(props) {
       <div className="col-sm-12 col-md-9 col-lg-9 current">
          <h1 className="current-city">
             <span className="current-city city">{props.data.city}</span>
-            <span className="current-city temperature">
-               {props.data.temperature}
-            </span>
-            <sup>
-               <a className="active" href="/">
-               °C
-               </a>
-               <a className="fahrenheit" href="/">
-               °F
-               </a>
-            </sup>
-               <Icons code={props.data.icon} size={55} />
+            <Temperature celsius={props.data.temperature} />
+            <Icons code={props.data.icon} size={55} />
          </h1>
          <ul className="current-date">
             <li className="current-date-element">

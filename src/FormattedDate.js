@@ -39,7 +39,7 @@ export default function FormattedDate(props) {
    }
    return (
     <div>
-      Last update of weather: {day}, {month} {dayNumber}, {hours}:{minutes}   
+      Last update: {day}, {month} {dayNumber}, {hours}:{minutes}   
     </div>
    );
 }

@@ -17,34 +17,9 @@
    padding: 0 0.4rem; 
  }
  
- .CityWeatherInfo .main-icon {
+ .CityWeatherInfo canvas {
    vertical-align: bottom;
-   width: 90px;
    position: relative;
-   top: 16px;
- }
- 
- .CityWeatherInfo .current .active {
-   color: rgba(0, 0, 0, 0.7);
-   cursor: default;
- }
- 
- .CityWeatherInfo sup {
-   position: relative;
-   left: -0.5rem;
-   top: -1.5rem;
-   font-size: 1rem;
- }
- 
- .CityWeatherInfo a {
-   text-decoration: none;
- }
- 
- .CityWeatherInfo .fahrenheit::before {
-   content: "";
-   border-right: 1px solid #d0d0d0;
-   padding-right: 5px;
-   margin-right: 5px;
  }
  
  .CityWeatherInfo .current-date {
