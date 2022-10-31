@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import CityWeatherInfo from "./CityWeatherInfo";
-import Forecast from "./Forecast";
+// import Forecast from "./Forecast";
 import { ColorRing } from 'react-loader-spinner'
 import "./styles.css";
 import "./Weather.css"

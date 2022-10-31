@@ -22,10 +22,10 @@ export default function Temperature(props) {
       <div className="Temperature">         
          <span className="current-city temperature">{props.celsius}</span>
          <sup>
-         <a className="active" href="#" rel="noopener noreferrer">
+         <a className="active" href="/">
          °C
          </a>
-         <a className="fahrenheit" href="#" onClick={showFahrenheit} rel="noopener noreferrer">
+         <a className="fahrenheit" href="/" onClick={showFahrenheit}>
          °F
          </a>
          </sup>
@@ -35,10 +35,10 @@ export default function Temperature(props) {
          <div className="Temperature">         
             <span className="current-city temperature">{convertFahrenheit()}</span>
             <sup>
-            <a href="#" onClick={showCelsius} rel="noopener noreferrer">
+            <a href="/" onClick={showCelsius}>
             °C
             </a>
-            <a className="active fahrenheit" href="#" rel="noopener noreferrer">
+            <a className="active fahrenheit" href="/">
             °F
             </a>
             </sup>
