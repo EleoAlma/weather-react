@@ -62,16 +62,16 @@ export default function Weather(props) {
               value="Go"
               className="btn btn-primary shadow-sm go"
             />
-            <input
+            {/* <input
               type="button"
               value="📍"
               className="btn btn-primary shadow-sm location"
-            />
+            /> */}
           </form>
         </div>
       </div>
       <CityWeatherInfo data={fullInformation} />
-      <Forecast coordinates={fullInformation.coordinates} />
+      {/* <Forecast coordinates={fullInformation.coordinates} /> */}
     </div>
   </div>
 </div> );
