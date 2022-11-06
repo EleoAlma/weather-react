@@ -7,12 +7,12 @@ import "./CityWeatherInfo.css"
 
 export default function CityWeatherInfo(props) {
    return(
-   <div className="CityWeatherInfo row">
+   <div className="CityWeatherInfo row mt-2">
       <div className="col-sm-12 col-md-9 col-lg-9 current">
          <h1 className="current-city">
             <span className="current-city city">{props.data.city}</span>
             <Temperature celsius={props.data.temperature} />
-            <Icons code={props.data.icon} size={55} />
+            <Icons code={props.data.icon} size={60} />
          </h1>
          <ul className="current-date">
             <li className="current-date-element">

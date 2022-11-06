@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import CityWeatherInfo from "./CityWeatherInfo";
-// import Forecast from "./Forecast";
+import Forecast from "./Forecast";
 import { ColorRing } from 'react-loader-spinner'
 import "./styles.css";
 import "./Weather.css"
@@ -29,7 +29,7 @@ export default function Weather(props) {
     let apiKey = "96eb20764d4adbb57fa516a1544ed0a1";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(displayWeather);
-    console.log(url)
+    console.log(url);
   }
 
   function handleSubmit(event) {
@@ -42,39 +42,35 @@ export default function Weather(props) {
   }
 
   if (fullInformation.ready) {
-  return ( <div className="Weather">
-  <div className="weather-app-wrapper">
-    <div className="weather-app">
-      <div className="row">
-        <div className="col-12 location-input">
-          <form onSubmit={handleSubmit} >
-            <input
-              type="search"
-              className="form-control shadow-sm"
-              name="enter-city"
-              placeholder="Enter a location..."
-              autoComplete="off"
-              autoFocus
-              onChange={changeCity}
-            />
-            <input
-              type="submit"
-              value="Go"
-              className="btn btn-primary shadow-sm go"
-            />
-            {/* <input
-              type="button"
-              value="📍"
-              className="btn btn-primary shadow-sm location"
-            /> */}
-          </form>
+  return ( 
+  <div className="Weather">
+    <div className="weather-app-wrapper">
+      <div className="weather-app">
+        <div className="row">
+          <div className="col-12 location-input">
+            <form onSubmit={handleSubmit} >
+              <input
+                type="search"
+                className="form-control shadow-sm"
+                name="enter-city"
+                placeholder="Enter a location..."
+                autoComplete="off"
+                autoFocus
+                onChange={changeCity}
+              />
+              <input
+                type="submit"
+                value="Go"
+                className="btn btn-primary shadow-sm go"
+              />
+            </form>
+          </div>
         </div>
+        <CityWeatherInfo data={fullInformation} />
+        <Forecast coordinates={fullInformation.coordinates} />
       </div>
-      <CityWeatherInfo data={fullInformation} />
-      {/* <Forecast coordinates={fullInformation.coordinates} /> */}
     </div>
-  </div>
-</div> );
+  </div> );
 } else {
   searchWeather();
   return (

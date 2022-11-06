@@ -2,11 +2,6 @@
    display: inline;
 }
 
-.Temperature .active {
-   color: rgba(0, 0, 0, 0.7);
-   cursor: default;
- }
- 
  .Temperature sup {
    position: relative;
    left: -0.2rem;
@@ -14,13 +9,8 @@
    font-size: 1rem;
  }
  
- .Temperature a {
-   text-decoration: none;
- }
- 
- .Temperature .fahrenheit::before {
-   content: "";
-   border-right: 1px solid #d0d0d0;
-   padding-right: 5px;
-   margin-right: 5px;
- }
+ .Temperature .active {
+  position: relative;
+  left: -0.3rem;
+  font-size: 1rem;
+}
