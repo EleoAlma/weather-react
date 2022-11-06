@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ForecastDay from "./ForecastDay";
 
@@ -8,13 +8,16 @@ export default function Forecast(props) {
 const [forecast, setForecast] = useState(null);
 const [loaded, setLoaded] = useState(false);
 
+useEffect(function() {
+  setLoaded(false);},
+  [props.coordinates]);
+
    function handleResponse(response) {
       setForecast(response.data.daily);
       setLoaded(true);
    }
 
-
-   function load() {
+   function loadNewApi() {
       let lat = props.coordinates.lat;
       let lon = props.coordinates.lon;
       let apiKey = "96eb20764d4adbb57fa516a1544ed0a1";
@@ -42,7 +45,7 @@ const [loaded, setLoaded] = useState(false);
         </div>
       );
     } else {
-      load();
+      loadNewApi();
       return null;
    }
 }

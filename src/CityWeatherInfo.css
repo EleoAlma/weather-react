@@ -4,6 +4,7 @@
    color: rgba(0, 0, 0, 0.7);
  }
  .CityWeatherInfo .current-city .city {
+   color: cadetblue;
    font-size: 2rem;
    transition: all 300ms ease-in-out;
  }
@@ -13,6 +14,7 @@
  }
  
  .CityWeatherInfo .current-city .temperature {
+   color: cadetblue;
    font-size: 3rem;
    padding: 0 0.4rem; 
  }
