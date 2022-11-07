@@ -29,7 +29,6 @@ export default function Weather(props) {
     let apiKey = "96eb20764d4adbb57fa516a1544ed0a1";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(url).then(displayWeather);
-    console.log(url);
   }
 
   function handleSubmit(event) {
@@ -40,6 +39,17 @@ export default function Weather(props) {
   function changeCity(event) {
     setCity(event.target.value);
   }
+  
+  function geolocation() {
+      navigator.geolocation.getCurrentPosition(function(position) {
+      let apiKey = "96eb20764d4adbb57fa516a1544ed0a1";
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+      axios.get(apiUrl).then(displayWeather);
+    });
+  }
+
 
   if (fullInformation.ready) {
   return ( 
@@ -63,6 +73,7 @@ export default function Weather(props) {
                 value="Go"
                 className="btn btn-primary shadow-sm go"
               />
+              <input type="button" value="📍" class="btn btn-primary shadow-sm location" onClick={geolocation} />
             </form>
           </div>
         </div>
