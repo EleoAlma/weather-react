@@ -73,7 +73,7 @@ export default function Weather(props) {
                 value="Go"
                 className="btn btn-primary shadow-sm go"
               />
-              <input type="button" value="📍" class="btn btn-primary shadow-sm location" onClick={geolocation} />
+              <input type="button" value="📍" className="btn btn-primary shadow-sm location" onClick={geolocation} />
             </form>
           </div>
         </div>

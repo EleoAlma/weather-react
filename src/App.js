@@ -8,7 +8,6 @@ export default function App() {
       <div className="App">
          <div className="container">
             <Weather defaultCity="London" />
-         
             <div className="row open-source text-center">
                <div className="col">
                   <a

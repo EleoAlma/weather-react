@@ -13,10 +13,6 @@
    overflow: hidden;
  }
  
- .Weather img {
-   filter: drop-shadow(2px 1px 1px rgb(88 100 126)) contrast(120%);
- }
- 
  .Weather .form-control {
    display: inline-block;
    width: 55%;
@@ -50,6 +46,7 @@
    border-radius: 12px;
    color: rgba(0, 0, 0, 0.7);
  }
+ 
  .Weather .btn-primary:hover {
    color: rgba(0, 0, 0, 0.7);
    background: rgba(255, 255, 255, 0.6);
@@ -58,7 +55,6 @@
  .Weather .btn-primary .location {
    margin-left: 3.5rem;
  }
-
 
  .blocks-wrapper {
   display: block;

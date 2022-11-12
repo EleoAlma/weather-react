@@ -6,7 +6,7 @@ export default function Temperature(props) {
       <div className="Temperature">         
          <span className="current-city temperature">{props.celsius}</span>
          <sup>
-            <span className="active" href="/">
+            <span className="active">
             °C
             </span>
          </sup>

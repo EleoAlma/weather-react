@@ -23,7 +23,6 @@ useEffect(function() {
       let apiKey = "96eb20764d4adbb57fa516a1544ed0a1";
       let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
       axios.get(url).then(handleResponse);
-      console.log(url);
     }
   
     if (loaded) {
